@@ -21,4 +21,10 @@ jobs:
         git clone https://github.com/philipperemy/expressvpn-python evpn && cd evpn
         sudo dpkg -i expressvpn_2.3.4-1_amd64.deb
         pip3 install expressvpn-python
-        expressvpn activate
+        
+        expect -c "  
+spawn expressvpn activate
+expect \"enter activation code:\"  
+send \"$code\r\"  
+interact  
+"  
