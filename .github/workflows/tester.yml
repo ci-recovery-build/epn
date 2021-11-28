@@ -24,6 +24,6 @@ jobs:
         sudo apt-get install expect -y
         expect -c "  
         spawn expressvpn activate
-         expect \"enter activation code:\"  
+         expect \"Enter activation code:\r"  
          send \"$code\r\"  
          interact"  
