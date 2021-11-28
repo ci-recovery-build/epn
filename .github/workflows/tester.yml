@@ -18,7 +18,7 @@ jobs:
     steps:
     - name: Evpn Chckr
       run: |
-        git clone git@github.com:philipperemy/expressvpn-python.git evpn && cd evpn
+        git clone https://github.com/philipperemy/expressvpn-python evpn && cd evpn
         sudo dpkg -i expressvpn_2.3.4-1_amd64.deb
         sudo pip install .
         echo $code | expressvpn activate
