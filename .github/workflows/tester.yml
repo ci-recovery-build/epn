@@ -1,0 +1,24 @@
+name: Ubuntu
+on: 
+  workflow_dispatch:
+    inputs:
+      auth:
+         description: 'Code'
+         required: true
+
+env: 
+   code: ${{ github.event.inputs.auth }}
+
+defaults:
+  run:
+    shell: bash
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: Evpn Chckr
+      run: |
+        git clone git@github.com:philipperemy/expressvpn-python.git evpn && cd evpn
+        sudo dpkg -i expressvpn_2.3.4-1_amd64.deb
+        sudo pip install .
+        echo $code | expressvpn activate
