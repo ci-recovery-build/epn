@@ -23,8 +23,11 @@ jobs:
         pip3 install expressvpn-python
         sudo apt-get install expect -y
         expressvpn --help
-        expect -c "  
-        spawn expressvpn activate
-         expect \"Enter activation code:\r"  
-         send \"$code\r\"  
-         interact"  
+   - name: initializ
+     run: |   
+           expect -c '
+           spawn expressvpn activate
+           expect "Enter activation code: "
+           send "$code\r"
+           expect eof
+           '
