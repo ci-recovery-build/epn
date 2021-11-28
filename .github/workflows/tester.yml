@@ -23,8 +23,7 @@ jobs:
         pip3 install expressvpn-python
         
         expect -c "  
-spawn expressvpn activate
-expect \"enter activation code:\"  
-send \"$code\r\"  
-interact  
-"  
+        spawn expressvpn activate
+         expect \"enter activation code:\"  
+         send \"$code\r\"  
+         interact"  
