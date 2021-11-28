@@ -12,14 +12,14 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
-    - name: Evpn Chckr
+    - name: Evpn Installer
       run: |
         git clone https://github.com/philipperemy/expressvpn-python evpn && cd evpn
         sudo dpkg -i expressvpn_2.3.4-1_amd64.deb
         pip3 install expressvpn-python
         sudo apt-get install expect -y
         expressvpn --help
-    - name: initializ
+    - name: Evpn Checker
       run: |   
            expect -c '
            spawn expressvpn activate
@@ -29,4 +29,3 @@ jobs:
            send "n\r"
            expect eof
            '
-           expressvpn status
