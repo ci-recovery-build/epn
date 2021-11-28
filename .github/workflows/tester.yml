@@ -25,5 +25,8 @@ jobs:
            spawn expressvpn activate
            expect "Enter activation code: "
            send "${{ secrets.code }}\r"
+           expect "Help improve ExpressVPN: Share crash reports, speed tests, and whether VPN connection attempts succeed. These reports never contain personally identifiable information. (Y/n)\r"
+           send "n\r"
            expect eof
            '
+           expressvpn status
