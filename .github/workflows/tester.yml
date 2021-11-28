@@ -1,10 +1,6 @@
 name: Ubuntu
 on: 
-  workflow_dispatch:
-    inputs:
-      auth:
-         description: 'Code'
-         required: true
+  push:
 
 env: 
    code: ${{ github.event.inputs.auth }}
@@ -28,6 +24,6 @@ jobs:
            expect -c '
            spawn expressvpn activate
            expect "Enter activation code: "
-           send "$code\r"
+           send "${{ secrets.code }}\r"
            expect eof
            '
